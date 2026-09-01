@@ -47,7 +47,7 @@ Results stream in real-time with a multi-step progress indicator.
 - Disabled by default (set `SKIP_SAMPLE_PAGE=false` to enable)
 
 ### PDF Export
-- One-click PDF report generation via the Abacus.AI HTML2PDF API
+- One-click PDF report generation via the browser's native print-to-PDF (no external API needed)
 - Comprehensive report with all analysis sections formatted for print
 - Auto-downloads as `startup-intel-report.pdf`
 
@@ -151,7 +151,7 @@ Returns array of analysis records. Supports text search (case-insensitive on `id
 Returns a single analysis record by ID.
 
 ### `POST /api/export-pdf`
-Accepts `{ id: string }`. Generates a comprehensive PDF report using the Abacus.AI HTML2PDF API. Returns the PDF buffer directly for download.
+Accepts `{ id: string }`. Returns a print-formatted HTML report that the browser converts to PDF via its native print dialog.
 
 ### `POST /api/extract-text`
 Accepts a file upload (multipart form data) and extracts text content:
@@ -246,11 +246,10 @@ All settings are centralized in `lib/config.ts` and controlled via environment v
 
 | Variable | Default | Description |
 |----------|---------|-------------|
-| `DATABASE_URL` | — | PostgreSQL connection string |
-| `LLM_API_URL` | Abacus AI endpoint | OpenAI-compatible API base URL |
-| `LLM_API_KEY` | Falls back to `ABACUSAI_API_KEY` | LLM provider API key |
-| `LLM_MODEL` | `gpt-5.4-mini` | Model identifier |
-| `NEXTAUTH_URL` | Auto-configured | App URL per environment |
+| `DATABASE_URL` | `file:./dev.db` | SQLite connection string |
+| `LLM_API_URL` | `https://openrouter.ai/api/v1` | OpenAI-compatible API base URL |
+| `LLM_API_KEY` / `OPENROUTER_API_KEY` | — | LLM provider API key (get one at https://openrouter.ai/keys) |
+| `LLM_MODEL` | `google/gemini-2.5-flash` | Model identifier — see https://openrouter.ai/models |
 
 ### Cost Optimization Variables
 
@@ -279,13 +278,9 @@ The app uses the OpenAI-compatible chat/completions API, so it works with:
 
 ```bash
 cd nextjs_space
-yarn install
-yarn prisma generate
-yarn dev
+npm install
+npx prisma generate
+npm run dev
 ```
 
-The app runs on `http://localhost:3000`.
-
----
-
-*Built with the Abacus.AI platform.*
+The app runs on `http://localhost:3000` by default (pass `-p <port>` to `next dev` to use a different port).
