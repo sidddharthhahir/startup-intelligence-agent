@@ -1,6 +1,6 @@
 /**
  * Provider-agnostic LLM client using the OpenAI-compatible chat/completions API.
- * Works with: OpenAI, Abacus AI, Groq, Together AI, Fireworks, Mistral,
+ * Works with: OpenAI, OpenRouter, Groq, Together AI, Fireworks, Mistral,
  *             Ollama, LM Studio, vLLM, or any OpenAI-compatible endpoint.
  */
 
