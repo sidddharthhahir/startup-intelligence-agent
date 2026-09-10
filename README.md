@@ -57,4 +57,4 @@ Contributions are welcome. Please open an issue for discussion before submitting
 
 ## License / Contact
 
-License details are not currently specified in this repository. For questions or collaboration, open an issue in this repository.
+Licensed under [MIT](LICENSE). For questions or collaboration, open an issue in this repository.
