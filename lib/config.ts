@@ -16,11 +16,6 @@ export const llmConfig = {
 };
 
 // ─────────────────────────────────────────────
-// ANALYSIS SETTINGS (COST OPTIMIZATION)
-// ─────────────────────────────────────────────
-// Tune these to control token usage and costs.
-
-// ─────────────────────────────────────────────
 // PDF GENERATION CONFIGURATION
 // ─────────────────────────────────────────────
 // PDF export uses browser print (no external API needed).
@@ -38,6 +33,10 @@ export const extractConfig = {
   extractMaxTokens: parseInt(process.env.EXTRACT_MAX_TOKENS || '4000', 10),
 };
 
+// ─────────────────────────────────────────────
+// ANALYSIS SETTINGS (COST OPTIMIZATION)
+// ─────────────────────────────────────────────
+// Tune these to control token usage and costs.
 export const analysisConfig = {
   /** Maximum input length in characters */
   maxInputLength: parseInt(process.env.MAX_INPUT_LENGTH || '5000', 10),
